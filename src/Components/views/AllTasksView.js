@@ -28,4 +28,3 @@ AllTasksView.propTypes = {
     allTasks: PropTypes.array.isRequired,
 };
 export default AllTasksView;
-
