@@ -1,33 +1,31 @@
 import React from "react";
-import { createBrowserRouter,
-  Route,
-  createRoutesFromElements,
-  RouterProvider
-} from "react-router-dom";
+import {Switch, Rotute} from "react-router-dom";
 
-  //pages. 
-  import AllEmployeesView from './View/AllEmployeesView';
-  import About from './View/AllTasksView';
-  import RootLayout from "./layouts/Rootlayout";
-  import Employee from "./View/EmployeeView";
+import {
+  HomePageContainer,
+  EmployeesContainer,
+  CourseContainer,
+  AllEmployeesContainer,
+  AllTasksContainer,
+  NewTaskContainer,
+  EditTaskContainer,
+  TaskContainer
+} from './Components/Containers';
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<RootLayout />}>
-      <Route index element={<AllEmployeesView />}>
-        {/* <Route path="employee" element={<Employee />}></Route> */}
-      </Route>
-      <Route path="about" element={<About />} />
-    </Route>
-  )
-)
-
-
-function App() {
+const App = () => {
   return (
-    <RouterProvider router={router}>
-
-    </RouterProvider>
+    <div>
+      <Switch>
+        <Route exact path="/" component={HomePageContainer} />
+        <Route exact path="/employees" component={AllEmployeesContainer} />
+        <Route exact path="/employee/:id" component={EmployeesContainer} />
+        <Route exact path="/tasks" component={AllTasksContainer} />
+        <Route exact path="/newtask" component={NewTaskContainer} />
+        <Route exact path="/task/:id" component={TaskContainer} />
+        <Route exact path="/edittask/:id" component={EditTaskContainer} />
+        
+      </Switch>
+    </div>
   );
 }
 
