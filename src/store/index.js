@@ -1,6 +1,6 @@
 // Necessities and accessories for constructing our Redux store;
-import {combineReducers, applyMiddleware, legacy_createStore as createStore} from 'redux';
-import {createLogger} from 'redux-logger';
+import { combineReducers, applyMiddleware, legacy_createStore as createStore } from 'redux';
+import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 
 //import all reducers from barrel file 

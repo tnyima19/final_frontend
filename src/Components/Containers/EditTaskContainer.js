@@ -1,9 +1,9 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect, Link } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 
 import { fetchTaskThunk, editTaskThunk, fetchAllEmployeesThunk  } from '../../store/thunks';
-import employee from '../../store/reducers/employee';
+
 
 class EditTaskContainer extends Component {
     constructor(props){
@@ -82,11 +82,11 @@ class EditTaskContainer extends Component {
         let { task, allEmployees, editTask, fetchTask} = this.props;
         let assignedEmployee = task.employeeId;
 
-        let otherEmployee = allEmployees.filter(employee => employee.id!==assignedEmployee);
+        let otherEmployees = allEmployees.filter(employee => employee.id!==assignedEmployee);
       
         //go to single course view of the edited course
         if(this.state.redirect) {
-          return (<Redirect to={`/task/${this.state.redirectId}`}/>)
+          return (<Navigate to={`/task/${this.state.redirectId}`}/>)
         }
 
         return (

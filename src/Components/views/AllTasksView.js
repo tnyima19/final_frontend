@@ -1,30 +1,39 @@
-import PropTypes from "prop-types";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-
-const AllTasksView = (props) =>{
-    if(!props.allTasks.length){
-        return<div>There are no tasks</div>
-    }
-
-    return(
-        <div>
-            {props.allTasks.map((task) =>{
-                let taskName = task.name;
-                return(
-                    <div key={task.id}> 
-                    <Link to={`/task/${task.id}`}>
-                        <h1>{taskName}</h1>
-                    </Link>
-                    <p>{task.department}</p>
-                    </div>
-                );
-            })}
-        </div>
+const AllTasksView = (props) => {
+  let {tasks, deleteTask} = props;
+  //courses = [{id: 300, title: "hello"}]
+  if (!tasks.length) {
+    return (
+    <div>
+      <p>There are no tasks.</p>
+      <Link to={`/newtask`}>
+        <button>Add New Task</button>
+      </Link>
+    </div>
     );
+  }
+  
+  return (
+    <div>
+      {tasks.map((task) => {
+        let name = task.name;
+        return (
+          <div key={task.id}>
+          <Link to={`/course/${task.id}`}>
+            <h1>{name}</h1>
+          </Link>
+          <button onClick={() => deleteTask(task.id)}>Delete</button>
+          </div>
+        );
+      }
+      )}
+      <Link to={`/newtask`}>
+        <button>Add New Task</button>
+      </Link>
+    </div>
+  );
 };
 
-AllTasksView.propTypes = {
-    allTasks: PropTypes.array.isRequired,
-};
+
 export default AllTasksView;

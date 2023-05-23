@@ -1,6 +1,6 @@
 import { FETCH_EMPLOYEE } from "../actions/actionTypes";
 
-const intitialState = {
+const initialState = {
     tasks: [],
 };
 
