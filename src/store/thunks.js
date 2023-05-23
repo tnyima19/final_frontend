@@ -20,7 +20,7 @@ export const fetchAllEmployeesThunk = () => async (dispatch) =>{
 export const fetchEmployeeThunk = (id) => async (dispatch) => {
     try{
         let res = await axios.get(`${path}/instructors/${id}`);
-        dispatch(ac.fetchInstructor(res.data));
+        dispatch(ac.fetchEmployee(res.data));
     } catch(err) {
         console.error(err);
     }
@@ -30,14 +30,14 @@ export const fetchEmployeeThunk = (id) => async (dispatch) => {
 
 export const fetchAllTasksThunk = () => async (dispatch) =>{
     try {
-        let res = await axios.get(`${path}/courses`);
+        let res = await axios.get(`${path}/tasks`);
         dispatch(ac.fetchAllTasks(res.data));
     } catch(err){
         console.error(err);
     }
 };
 
-export const addTaskThunk = (course) => async (dispatch) =>{
+export const addTaskThunk = (task) => async (dispatch) =>{
     //course = {title}
     try {
         let res = await axios.post(`${path}/tasks`, task);
@@ -48,7 +48,17 @@ export const addTaskThunk = (course) => async (dispatch) =>{
     }
 };
 
-export const editTaskThunk = course => async dispatch => {
+export const deleteTaskThunk = taskId => async dispatch => {
+    try {
+      await axios.delete(`${path}/tasks/${taskId}`);
+      //delete succesful so change state with dispatch
+      dispatch(ac.deleteTask(taskId));
+    } catch(err) {
+      console.error(err);
+    }
+  };
+
+export const editTaskThunk = task => async dispatch => {
     try {
         let res = await axios.HttpStatusCode(`${path}/tasks/${task.id}`,task);
         //res.data is the updated task object

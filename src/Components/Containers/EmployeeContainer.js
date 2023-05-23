@@ -6,7 +6,7 @@ import {
     editTaskThunk
 } from "../../store/thunks";
 
-import {InstructorView} from "../views";
+import {EmployeeView} from "../views";
 
 class EmployeeContainer extends Component {
     componentDidMount(){
@@ -16,7 +16,7 @@ class EmployeeContainer extends Component {
 
     render(){
         return(
-            <InstructorView
+            <EmployeeView
                 employee={this.props.employee}
                 editTask={this.props.editTask}
                 allTasks={this.props.allTasks}
@@ -27,8 +27,8 @@ class EmployeeContainer extends Component {
 
 const mapState = (state) =>{
     return{
-        instructor: state.instructor,
-        allCourses: state.allCourses,
+        instructor: state.employee,
+        allCourses: state.allTasks,
     };
 };
 
@@ -36,7 +36,7 @@ const mapState = (state) =>{
 const mapDispatch = (dispatch) => {
     return{
         fetchEmployee: (id) =>dispatch(fetchEmployeeThunk(id)),
-        editTask: (id) =>dispatch(editTaskThunk(task)),
+        editTask: (task) =>dispatch(editTaskThunk(task)),
         fetchTasks: () => dispatch(fetchAllTasksThunk()),
     };
 

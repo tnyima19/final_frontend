@@ -1,10 +1,8 @@
-import React from "react";
-import {Switch, Rotute} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import {
   HomePageContainer,
-  EmployeesContainer,
-  CourseContainer,
+  EmployeeContainer,
   AllEmployeesContainer,
   AllTasksContainer,
   NewTaskContainer,
@@ -15,16 +13,16 @@ import {
 const App = () => {
   return (
     <div>
-      <Switch>
-        <Route exact path="/" component={HomePageContainer} />
-        <Route exact path="/employees" component={AllEmployeesContainer} />
-        <Route exact path="/employee/:id" component={EmployeesContainer} />
-        <Route exact path="/tasks" component={AllTasksContainer} />
-        <Route exact path="/newtask" component={NewTaskContainer} />
-        <Route exact path="/task/:id" component={TaskContainer} />
-        <Route exact path="/edittask/:id" component={EditTaskContainer} />
+      <Routes>
+        <Route exact path="/" element={ <HomePageContainer/>} />
+        <Route exact path="/employees" element={ <AllEmployeesContainer />} />
+        <Route exact path="/employee/:id" element={<EmployeeContainer />} />
+        <Route exact path="/tasks" element={<AllTasksContainer />} />
+        <Route exact path="/newtask" element={<NewTaskContainer />} />
+        <Route exact path="/task/:id" element={<TaskContainer />} />
+        <Route exact path="/edittask/:id" element={<EditTaskContainer />} />
         
-      </Switch>
+      </Routes>
     </div>
   );
 }

@@ -11,8 +11,8 @@ const EmployeeView = (props) =>{
             <h1>{employee.firstname}</h1>
             <h3>{employee.department}</h3>
             <div style={{display:"flex", flexDirection:"row", justifyContent:"space-evenly"}}>
-                <div>Assigned courses:
-                    {assignedCourses.map( course =>{
+                <div>Assigned Tasks:
+                    {assignedTasks.map( task =>{
                         return(
                             <div key={task.id}>
                             <Link to={`/task/${task.id}`}>

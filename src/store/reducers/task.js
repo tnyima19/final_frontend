@@ -6,7 +6,7 @@ const initialState = {
 };
 
 //REDUCER,
-const course = (state=intitialState, action) =>{
+const task = (state= initialState, action) =>{
     switch(action.type){
         case FETCH_TASK:
             return action.payload;
@@ -15,4 +15,4 @@ const course = (state=intitialState, action) =>{
     }
 };
 
-export default TaskView;
+export default task;

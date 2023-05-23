@@ -1,7 +1,7 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
-import {fetchTaskThunk} from "../../store/thunks";
-import {TaskView} from "../views"
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchTaskThunk } from "../../store/thunks";
+import { TaskView } from "../views";
 
 class TaskContainer extends Component {
     componentDidMount(){
