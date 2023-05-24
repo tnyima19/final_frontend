@@ -1,3 +1,4 @@
+
 import { Routes, Route } from "react-router-dom";
 
 import {
@@ -21,7 +22,6 @@ const App = () => {
         <Route exact path="/newtask" element={<NewTaskContainer />} />
         <Route exact path='/task/:id' element={<TaskContainer />} />
         <Route exact path="/edittask/:id" element={<EditTaskContainer />} />
-        
       </Routes>
     </div>
   );

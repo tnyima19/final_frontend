@@ -18,15 +18,15 @@ class NewTaskContainer extends Component {
             error: ""
 
         };
-        this.blankState = this.state;
-        //From Bind
-        this.changeDescription = this.changeDescription.bind(this);
-        this.changePriority = this.changePriority.bind(this);
-        this.changeDepartment = this.changeDepartment.bind(this);
+        // this.blankState = this.state;
+        // //From Bind
+        // this.changeDescription = this.changeDescription.bind(this);
+        // this.changePriority = this.changePriority.bind(this);
+        // this.changeDepartment = this.changeDepartment.bind(this);
 
 
-        // Data
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // // Data
+        // this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
@@ -36,33 +36,52 @@ class NewTaskContainer extends Component {
         });
     }
 
-    changeDescription(event){
-      this.setState({
-        description: event.target.value
-      });
-    }
+    // changeDescription(event){
+    //   this.setState({
+    //     description: event.target.value
+    //   });
+    // }
 
-    changePriority(event){
-      this.setState({
-        priority: event.target.value
-      });
-    }
+    // changePriority(event){
+    //   this.setState({
+    //     priority: event.target.value
+    //   });
+    // }
 
-    changeDepartment(event){
-      this.setState({
-        department: event.target.value
-      });
-    }
+    // changeDepartment(event){
+    //   this.setState({
+    //     department: event.target.value
+    //   });
+    // }
 
-    handleSubmit(event){
-      let newTask = {
+    // handleSubmit(event){
+    //   let newTask = {
+    //     description: this.state.description,
+    //     priority: this.state.priority,
+    //     department: this.state.department
+    //   };
+    //   alert(`Form has been submiteed ${newTask.description}`);
+    //   this.props.addTask(newTask);
+     
+    // }
+
+    handleSubmit = async event =>{
+      event.preventDefault();
+      if(this.state.description === ""){
+        this.setState({error:"title is requires"});
+        return;
+      }
+      let task = {
         description: this.state.description,
         priority: this.state.priority,
-        department: this.state.department
+        isComplete: this.state.isComplete
       };
-      alert(`Form has been submiteed ${newTask.description}`);
-      this.props.addTask(newTask);
-     
+      let newTask = await this.props.addTask(task);
+      this.setState({
+        redirect: true,
+        redirectId: newTask.id,
+        error: ""
+      });
     }
     
     componentWillUnmount(){
