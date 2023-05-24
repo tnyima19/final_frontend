@@ -2,7 +2,7 @@ import * as at from './actionTypes';
 
 //ACTION CREATORS;
 
-//all instructors
+//all employees
 
 export const fetchAllEmployees = (employees) =>{
     return{

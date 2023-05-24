@@ -1,8 +1,8 @@
-import {FETCH_TASK} from "../actions/actionTypes";
+import { FETCH_TASK } from "../actions/actionTypes";
 
 
 const initialState = {
-    instructor: {},
+    employee: {},
 };
 
 //REDUCER,
