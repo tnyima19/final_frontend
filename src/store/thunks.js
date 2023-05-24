@@ -1,15 +1,16 @@
 import * as ac from'./actions/actionCreators';
+//import * as axios from 'axios';
 const axios = require('axios');
 
 //PATH (should be where your servier is rurning")
-let path = "http://localhost:50001/api";
+let path = "http://localhost:5001/api";
 
 //THUNKS 
 //ALL EMployers
 
 export const fetchAllEmployeesThunk = () => async (dispatch) =>{
     try {
-        let res =await axios.get(`${path}/instructors`);
+        let res =await axios.get(`${path}/employees`);
         dispatch(ac.fetchAllEmployees(res.data));
     } catch(err){
         console.error(err);
@@ -19,7 +20,7 @@ export const fetchAllEmployeesThunk = () => async (dispatch) =>{
 //Single Employee
 export const fetchEmployeeThunk = (id) => async (dispatch) => {
     try{
-        let res = await axios.get(`${path}/instructors/${id}`);
+        let res = await axios.get(`${path}/employees/${id}`);
         dispatch(ac.fetchEmployee(res.data));
     } catch(err) {
         console.error(err);
@@ -38,7 +39,7 @@ export const fetchAllTasksThunk = () => async (dispatch) =>{
 };
 
 export const addTaskThunk = (task) => async (dispatch) =>{
-    //course = {title}
+    //task = {name}
     try {
         let res = await axios.post(`${path}/tasks`, task);
         dispatch(ac.addTask(res.data));
@@ -60,7 +61,7 @@ export const deleteTaskThunk = taskId => async dispatch => {
 
 export const editTaskThunk = task => async dispatch => {
     try {
-        let res = await axios.HttpStatusCode(`${path}/tasks/${task.id}`,task);
+        let res = await axios.put(`${path}/tasks/${task.id}`,task);
         //res.data is the updated task object
         dispatch(ac.editTask(res.data));
 
@@ -70,7 +71,7 @@ export const editTaskThunk = task => async dispatch => {
 };
 
 //Single task
-export const fetchTaskThunk = id =>async dispatch =>{
+export const fetchTaskThunk = id => async dispatch =>{
     try{
         let res = await axios.get(`${path}/tasks/${id}`);
         dispatch(ac.fetchTask(res.data));
