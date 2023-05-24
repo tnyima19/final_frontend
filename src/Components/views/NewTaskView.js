@@ -11,8 +11,8 @@ const NewTaskView = (props) => {
             </h2>
           </div>
           <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
-            <label style= {{color:'#11153e', fontWeight: 'bold'}}>Name: </label>
-            <input type="text" name="name" onChange ={(e) => handleChange(e)} />
+            <label style= {{color:'#11153e', fontWeight: 'bold'}}>Description: </label>
+            <input type="text" name="description" onChange ={(e) => handleChange(e)} />
             <br/>
             <br/>
   
@@ -22,7 +22,7 @@ const NewTaskView = (props) => {
             <br/>
   
             <label style={{color:'#11153e', fontWeight: 'bold'}}>employeeId: </label>
-            <input type="text" name="employeeId" onChange={(e) => handleChange(e)} />
+            <input type="integer" name="employeeId" onChange={(e) => handleChange(e)} />
             <br/>
             <br/>
   

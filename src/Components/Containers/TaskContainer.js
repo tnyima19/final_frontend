@@ -3,8 +3,10 @@ import { connect } from "react-redux";
 import { fetchTaskThunk } from "../../store/thunks";
 import { TaskView } from "../views";
 
+
 class TaskContainer extends Component {
     componentDidMount(){
+        //get task id from URL
         this.props.fetchTask(this.props.match.params.id);
     }
     render(){

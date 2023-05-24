@@ -41,8 +41,10 @@ export const fetchAllTasksThunk = () => async (dispatch) =>{
 export const addTaskThunk = (task) => async (dispatch) =>{
     //task = {name}
     try {
+        //alert('I am at add Task thunk');
         let res = await axios.post(`${path}/tasks`, task);
         dispatch(ac.addTask(res.data));
+        //alert(res);
         return res.data;
     } catch(err){
         console.error(err);
@@ -75,6 +77,8 @@ export const fetchTaskThunk = id => async dispatch =>{
     try{
         let res = await axios.get(`${path}/tasks/${id}`);
         dispatch(ac.fetchTask(res.data));
+        console.log(res.data);
+        return res.data;
     } catch(err){
         console.error(err);
     }

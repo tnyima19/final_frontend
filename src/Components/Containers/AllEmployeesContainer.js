@@ -12,6 +12,7 @@ function AllEmployeesContainer(){
         dispatch(fetchAllEmployeesThunk());
     }, [dispatch]);
 
+    console.log(allEmployees);
     return <AllEmployeesView allEmployees={allEmployees} />;
 }
 
