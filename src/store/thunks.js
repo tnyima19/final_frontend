@@ -11,6 +11,7 @@ let path = "http://localhost:5001/api";
 export const fetchAllEmployeesThunk = () => async (dispatch) =>{
     try {
         let res =await axios.get(`${path}/employees`);
+        //console.log(res);
         dispatch(ac.fetchAllEmployees(res.data));
     } catch(err){
         console.error(err);
@@ -21,6 +22,7 @@ export const fetchAllEmployeesThunk = () => async (dispatch) =>{
 export const fetchEmployeeThunk = (id) => async (dispatch) => {
     try{
         let res = await axios.get(`${path}/employees/${id}`);
+        console.log(res);
         dispatch(ac.fetchEmployee(res.data));
     } catch(err) {
         console.error(err);
@@ -78,7 +80,7 @@ export const fetchTaskThunk = id => async dispatch =>{
         let res = await axios.get(`${path}/tasks/${id}`);
         dispatch(ac.fetchTask(res.data));
         console.log(res.data);
-        return res.data;
+        //return res.data;
     } catch(err){
         console.error(err);
     }
