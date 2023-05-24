@@ -12,6 +12,7 @@ class EmployeeContainer extends Component {
     componentDidMount(){
         this.props.fetchEmployee(this.props.match.params.id);
         this.props.fetchTasks();
+        console.log(this.props);
     }
 
     render(){
