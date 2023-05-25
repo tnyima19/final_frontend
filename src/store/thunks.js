@@ -1,4 +1,5 @@
 import * as ac from'./actions/actionCreators';
+import { employee } from './reducers';
 //import * as axios from 'axios';
 const axios = require('axios');
 
@@ -72,6 +73,16 @@ export const deleteTaskThunk = taskId => async dispatch => {
       console.error(err);
     }
   };
+
+  export const deleteEmployeeThunk = (employeeId) => async (dispatch) => {
+    try {
+      await axios.delete(`${path}/employees/${employeeId}`);
+      dispatch(ac.deleteEmployee(employeeId));
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  
 
 export const editTaskThunk = task => async dispatch => {
     try {

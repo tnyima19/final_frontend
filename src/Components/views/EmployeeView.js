@@ -2,13 +2,14 @@ import { Link } from "react-router-dom";
 
 const EmployeeView = (props) => {
   const { employee, editTask, allTasks } = props;
-  console.log(props);
+  console.log(employee);
   let assignedTasks = allTasks.filter((task) => task.employeeId === employee.id);
   let availableTasks = allTasks.filter((task) => task.employeeId !== employee.id);
 
   return (
     <div>
       <h1>{employee.firstname}</h1>
+      <h1>{employee.lastname}</h1>
       <h3>{employee.department}</h3>
       <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly" }}>
         <div>

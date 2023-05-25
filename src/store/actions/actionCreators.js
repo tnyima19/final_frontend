@@ -46,6 +46,14 @@ export const deleteTask = (taskId) =>{
         payload: taskId,
     };
 };
+
+export const deleteEmployee = (employeeId) =>{
+    return{
+        type: at.DELETE_EMPLOYEE,
+        payload: employeeId,
+    };
+};
+
 export const editTask = (task) => {
     return{
         type: at.EDIT_TASK,
