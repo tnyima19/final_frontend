@@ -53,6 +53,16 @@ export const addTaskThunk = (task) => async (dispatch) =>{
     }
 };
 
+export const addEmployeeThunk = (employee) => async (dispatch) =>{
+    try {
+        let res = await axios.post(`${path}/employees`,employee);
+        dispatch(ac.addEmployee(res.data));
+        return res.data;
+    } catch(err){
+        console.error(err);
+    }
+}
+
 export const deleteTaskThunk = taskId => async dispatch => {
     try {
       await axios.delete(`${path}/tasks/${taskId}`);
